@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="catalogo.css">
+    <link rel="stylesheet" href="imagem.css">
+    <title>Sarom Kids - Loja Infantil</title>
+</head>
+<body>
+
+<header>
+    <img id="sarom" src="SaromLogo.png">
+</header>
+
+<nav>
+    <a href="index.html">Início</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="catalogo.html">Promoções</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="#">Contato</a>
+    <a href="carrinho.html">Carrinho</a>
+</nav>
+
+<section class="catalogo">
+
+    <div class="produto">
+        <img src="https://via.placeholder.com/200x200?text=Vestido+Infantil">
+        <h3>Vestido Floral</h3>
+        <p>R$ 89,90</p>
+        <button onclick="adicionarCarrinho('Vestido Floral', 89.90)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="https://via.placeholder.com/200x200?text=Conjunto+Menino">
+        <h3>Conjunto Menino</h3>
+        <p>R$ 79,90</p>
+        <button onclick="adicionarCarrinho('Conjunto Menino', 79.90)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="https://via.placeholder.com/200x200?text=Body+Bebê">
+        <h3>Body Bebê</h3>
+        <p>R$ 49,90</p>
+        <button onclick="adicionarCarrinho('Body Bebê', 49.90)">Comprar</button>
+    </div>
+
+</section>
+
+<section class="promocao">
+    <h2>Itens na PROMOÇÃO!!!</h2>
+</section>
+
+<script>
+    function adicionarCarrinho(nome, preco) {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        carrinho.push({ nome, preco });
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        alert("Produto adicionado ao carrinho!");
+    }
+</script>
+
+</body>
+</html>

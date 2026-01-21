@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "nome": "Vestido Infantil",
+    "preco": 79.9
+  },
+  {
+    "id": 2,
+    "nome": "Conjunto Infantil",
+    "preco": 99.9
+  },
+  {
+    "id": 3,
+    "nome": "Camiseta Kids",
+    "preco": 49.9
+  }
+]

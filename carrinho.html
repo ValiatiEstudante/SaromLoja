@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="carrinho.css">
+    <link rel="stylesheet" href="imagem.css">
+    <title>Sarom Kids - Loja Infantil</title>
+</head>
+<body>
+
+<header>
+    <img id="sarom" src="SaromLogo.png">
+</header>
+
+<nav>
+    <a href="index.html">Início</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="catalogo.html">Promoções</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="sobre.html">Contato</a>
+    <a href="carrinho.html">Carrinho</a>
+</nav>
+
+<section class="conteudo">
+    <h2>Seus Produtos</h2>
+
+    <div id="lista-carrinho"></div>
+
+    <div class="total" id="total"></div>
+
+    <div class="acoes">
+        <button id="limpar">Limpar Carrinho</button>
+        <button id="finalizar">Finalizar Compra</button>
+    </div>
+</section>
+
+<script>
+    // Carregar carrinho do localStorage
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    const lista = document.getElementById("lista-carrinho");
+    const totalElement = document.getElementById("total");
+
+    function atualizarCarrinho() {
+        lista.innerHTML = "";
+        let total = 0;
+
+        carrinho.forEach((item, index) => {
+            total += item.preco;
+
+            const div = document.createElement("div");
+            div.classList.add("item");
+            div.innerHTML = `
+                <span>${item.nome} - R$ ${item.preco.toFixed(2)}</span>
+                <button onclick="remover(${index})">Remover</button>
+            `;
+
+            lista.appendChild(div);
+        });
+
+        totalElement.textContent = "Total: R$ " + total.toFixed(2);
+    }
+
+    function remover(indice) {
+        carrinho.splice(indice, 1);
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        atualizarCarrinho();
+    }
+
+    document.getElementById("limpar").addEventListener("click", () => {
+        localStorage.removeItem("carrinho");
+        carrinho = [];
+        atualizarCarrinho();
+    });
+
+    document.getElementById("finalizar").addEventListener("click", () => {
+        if (carrinho.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        }
+        alert("Compra finalizada! Obrigado por comprar na Sarom Kids!");
+        localStorage.removeItem("carrinho");
+        carrinho = [];
+        atualizarCarrinho();
+    });
+
+    atualizarCarrinho();
+</script>
+
+</body>
+</html>

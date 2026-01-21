@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="imagem.css">
+    <title>Sarom Kids - Loja Infantil</title>
+</head>
+<body>
+
+<header>
+    <img id="sarom" src="SaromLogo.png">
+</header>
+
+<nav>
+    <a href="index.html">Início</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="catalogo.html">Promoções</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="sobre.html">Contato</a>
+    <a href="carrinho.html">Carrinho</a>
+</nav>
+
+<section class="hero">
+    <h2>Bem-vindo à Sarom Kids</h2>
+    <p>Veja nossos produtos, escolha suas peças e finalize sua compra com facilidade!</p>
+    <button id="catalogoBtn">Ver Catálogo</button>
+</section>
+
+
+<footer>
+    © 2025 - Sarom Kids — Todos os direitos reservados
+</footer>
+
+<script>
+    /*window.onload = function() {
+        alert("Bem-vindo à Sarom Kids!");
+    };*/
+
+    document.getElementById("catalogoBtn").addEventListener("click", function() {
+        window.location.href = "catalogo.html";
+    });
+</script>
+
+</body>
+</html>
